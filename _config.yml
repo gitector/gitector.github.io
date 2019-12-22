@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: Gitector
+github:
+  is_project_page: true
+  is_user_page: false

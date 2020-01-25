@@ -6,3 +6,4 @@ docker_url: https://hub.docker.com/repository/docker/gitector/gitector
 github:
   is_project_page: true
   is_user_page: false
+  repository_url: https://github.com/gitector/gitector

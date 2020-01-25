@@ -26,9 +26,6 @@ stages:
   - build
   - deploy
 
-before_script:
-  - wget link > gitector
-
 gitector:
   image: gitector/gitector
   script:

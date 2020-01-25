@@ -1,5 +1,8 @@
 theme: jekyll-theme-cayman
-title: Gitector
+title: Gitector 🔎
+description: Linter for your commits
+show_downloads: true
+docker_url: https://hub.docker.com/repository/docker/gitector/gitector
 github:
   is_project_page: true
   is_user_page: false

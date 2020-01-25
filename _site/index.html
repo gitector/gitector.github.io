@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Check your commits not only code | Gitector 🔎</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Check your commits not only code" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Linter for your commits" />
+<meta property="og:description" content="Linter for your commits" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Gitector 🔎" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/","name":"Gitector 🔎","description":"Linter for your commits","headline":"Check your commits not only code","@type":"WebSite","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=e9c3a077e1fe04a342695703c7fa344052243d3c">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Gitector 🔎</h1>
+      <h2 class="project-tagline">Linter for your commits</h2>
+      
+        <a href="https://github.com/gitector/gitector.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://hub.docker.com/repository/docker/gitector/gitector" class="btn">Get docker</a>
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="check-your-commits-not-only-code">Check your commits not only code</h2>
+
+<h3 id="compare-all-changes-in-your-branch">Compare all changes in your branch</h3>
+<p><a href="https://asciinema.org/a/295970"><img src="https://asciinema.org/a/295970.svg" alt="asciicast" /></a></p>
+<h3 id="use-markdown-formatter">Use markdown formatter</h3>
+<p><a href="https://asciinema.org/a/295974"><img src="https://asciinema.org/a/295974.svg" alt="asciicast" /></a></p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="cli">CLI</h3>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">.git/COMMIT_EDITMSG</code> and put inside</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitector <span class="nt">-di</span>
+</code></pre></div></div>
+
+<h3 id="github-actions">Github Actions</h3>
+
+<h3 id="gitlab">Gitlab</h3>
+
+<p>Add to your <code class="language-plaintext highlighter-rouge">gitlab-ci.yml</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stages:
+  - gitector
+  - build
+  - deploy
+
+before_script:
+  - wget link &gt; gitector
+
+gitector:
+  image: gitector/gitector
+  script:
+    - git fetch
+    - gitector
+  only:
+    refs:
+      - merge_requests
+      - master
+      - web
+
+
+</code></pre></div></div>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/gitector/gitector.github.io">gitector.github.io</a> is maintained by <a href="https://github.com/gitector">gitector</a>.</span>
+        
+        <span class="site-footer-credits">Made with ❤️ in Berlin.</span>
+      </footer>
+    </main>
+  </body>
+</html>

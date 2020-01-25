@@ -1,3 +1,0 @@
-# Gitector
-
-Coming soon...

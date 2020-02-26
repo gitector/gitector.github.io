@@ -16,27 +16,21 @@ gitector -di
 
 ### Github Actions
 
+You can find latest version to add to your [workflow here](https://github.com/gitector/gitector-actions)
+
 ### Gitlab
 
-Add to your `gitlab-ci.yml`
+Add code below to your `.gitlab-ci.yml` file
 
 ```
-stages:
-  - gitector
-  - build
-  - deploy
-
 gitector:
+  stage: build
   image: gitector/gitector
   script:
     - git fetch
     - gitector
-  only:
-    refs:
-      - merge_requests
-      - master
-      - web
-
+  except:
+    - master
 
 ```
 

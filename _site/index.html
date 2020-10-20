@@ -16,13 +16,13 @@
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Gitector 🔎" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/","name":"Gitector 🔎","description":"Linter for your commits","headline":"Check your commits not only code","@type":"WebSite","@context":"https://schema.org"}</script>
+{"description":"Linter for your commits","url":"http://localhost:4000/","@type":"WebSite","name":"Gitector 🔎","headline":"Check your commits not only code","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=e9c3a077e1fe04a342695703c7fa344052243d3c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=efd505a713b642ded2b26d4f245dea4ae5b71471">
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
@@ -31,7 +31,7 @@
       <h1 class="project-name">Gitector 🔎</h1>
       <h2 class="project-tagline">Linter for your commits</h2>
       
-        <a href="https://github.com/gitector/gitector.github.io" class="btn">View on GitHub</a>
+        <a href="https://github.com/gitector/gitector" class="btn">View on GitHub</a>
       
       
         <a href="https://hub.docker.com/repository/docker/gitector/gitector" class="btn">Get docker</a>
@@ -40,6 +40,25 @@
 
     <main id="content" class="main-content" role="main">
       <h2 id="check-your-commits-not-only-code">Check your commits not only code</h2>
+
+<p>Git history can be your source of truth. Same as with your code you need to take care of it.
+Codebase linting is common practice, but why neglect git history? How often you try to debug
+Error and git blame is not helpful because of the low-quality git message.</p>
+
+<p>You can run gitector as part of your pre-commit check or CI pipeline.</p>
+
+<h2 id="gitector-allows-you-to-define-rules-for-your-commit">Gitector allows you to define rules for your commit</h2>
+
+<p>You can configure gitector in any way some of the possible features include:</p>
+
+<ul>
+  <li>Allow only commits with Ticket number</li>
+  <li>Allow contributions restricted to corporate e-mail</li>
+  <li>Disallow merges</li>
+  <li>Define maximum characters for the title</li>
+  <li>Encourage small commits by limiting the number of files in a single commit</li>
+  <li>Make sure commit starts with action verb describing changes (like add, remove, fix)</li>
+</ul>
 
 <h3 id="compare-all-changes-in-your-branch">Compare all changes in your branch</h3>
 <p><a href="https://asciinema.org/a/295970"><img src="https://asciinema.org/a/295970.svg" alt="asciicast" /></a></p>
@@ -50,35 +69,43 @@
 
 <h3 id="cli">CLI</h3>
 
+<p>Init gitector configuration with default settings</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitector init
+</code></pre></div></div>
+
+<p>Run gitector against your local branch and master branch</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gitector ..master
+</code></pre></div></div>
+
+<p>Get more support</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitector —-help
+</code></pre></div></div>
+
+<h3 id="git-hook">Git hook</h3>
+
 <p>Edit file <code class="language-plaintext highlighter-rouge">.git/COMMIT_EDITMSG</code> and put inside</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitector <span class="nt">-di</span>
 </code></pre></div></div>
 
 <h3 id="github-actions">Github Actions</h3>
 
+<p>You can find latest version to add to your <a href="https://github.com/gitector/gitector-actions">workflow here</a></p>
+
 <h3 id="gitlab">Gitlab</h3>
 
-<p>Add to your <code class="language-plaintext highlighter-rouge">gitlab-ci.yml</code></p>
+<p>Add code below to your <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code> file</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stages:
-  - gitector
-  - build
-  - deploy
-
-before_script:
-  - wget link &gt; gitector
-
-gitector:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitector:
+  stage: build
   image: gitector/gitector
   script:
     - git fetch
     - gitector
-  only:
-    refs:
-      - merge_requests
-      - master
-      - web
-
+  except:
+    - master
 
 </code></pre></div></div>
 
@@ -86,7 +113,7 @@ gitector:
 
       <footer class="site-footer">
         
-          <span class="site-footer-owner"><a href="https://github.com/gitector/gitector.github.io">gitector.github.io</a> is maintained by <a href="https://github.com/gitector">gitector</a>.</span>
+          <span class="site-footer-owner"><a href="https://github.com/gitector/gitector">gitector.github.io</a> is maintained by <a href="https://github.com/gitector">gitector</a>.</span>
         
         <span class="site-footer-credits">Made with ❤️ in Berlin.</span>
       </footer>

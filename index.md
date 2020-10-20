@@ -1,20 +1,20 @@
 ## Check your commits not only code
 
 Git history can be your source of truth. Same as with your code you need to take care of it.
-Codebase linting is common practice but why neglect git history? How often you try to debug
-Error and git blame is not helpful because of poor git message.
+Codebase linting is common practice, but why neglect git history? How often you try to debug
+Error and git blame is not helpful because of the low-quality git message.
 
 You can run gitector as part of your pre-commit check or CI pipeline.
 
 ## Gitector allows you to define rules for your commit
 
-You can configure gitector in any way some of possible features include:
+You can configure gitector in any way some of the possible features include:
 
 - Allow only commits with Ticket number
-- Allow commiters with only certain email 
+- Allow contributions restricted to corporate e-mail 
 - Disallow merges 
-- Define maximum characters for title
-- Encourage small commits by limiting amount of files in single commit
+- Define maximum characters for the title
+- Encourage small commits by limiting the number of files in a single commit
 - Make sure commit starts with action verb describing changes (like add, remove, fix)
 
 ### Compare all changes in your branch
